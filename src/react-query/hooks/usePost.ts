@@ -11,7 +11,7 @@ interface Post {
   interface PostQuery {
     pageSize: number
   }
-
+ 
 const usePosts = (query: PostQuery) =>  
     useInfiniteQuery<Post[], Error>({
        queryKey: ['posts', query],
