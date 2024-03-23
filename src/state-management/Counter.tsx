@@ -1,19 +1,26 @@
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
+import counterReducer from './reducers/counterReducer';
 
 const Counter = () => {
-  const [value, setValue] = useState(0);
+  //useReducer hook has two arguments
+  //1. first arg is our reducer function
+  //2. second arg is initial state
+  //the returns an array with  [current state, dispatch]
+  //dispatch is a function for triggering changes
+  
+  const [value, dispatch] = useReducer(counterReducer, 0);
 
   return (
     <div>
       Counter ({value})
       <button
-        onClick={() => setValue(value + 1)}
+        onClick={() => dispatch({type: "INCREMENT"})}
         className="btn btn-primary mx-1"
       >
         Increment
       </button>
       <button
-        onClick={() => setValue(0)}
+        onClick={() => dispatch({type: "RESET"})}
         className="btn btn-primary mx-1"
       >
         Reset
