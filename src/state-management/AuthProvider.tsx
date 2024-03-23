@@ -17,3 +17,4 @@ const AuthProvider = ({children}: Props) => {
 };
 
 export default AuthProvider;
+ 
