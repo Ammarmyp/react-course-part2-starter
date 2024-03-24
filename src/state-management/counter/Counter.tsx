@@ -1,5 +1,5 @@
 import { useReducer, useState } from 'react';
-import counterReducer from './reducers/counterReducer';
+import counterReducer from './counterReducer';
 
 const Counter = () => {
   //useReducer hook has two arguments

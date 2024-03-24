@@ -1,4 +1,7 @@
-import useAuth from "./hooks/useAuth";
+import { useContext } from "react";
+import AuthContext from "./authContext";
+import useAuth from "./useAuth";
+
 
 const LoginStatus = () => {
   // const [user, setUser] = useState('');
@@ -19,9 +22,7 @@ const LoginStatus = () => {
   return (
     <div>
       <a
-        onClick={() =>
-          dispatch({ type: "LOGIN", username: "mosh.hamedani" })
-        }
+        onClick={() => dispatch({ type: "LOGIN", username: "mosh.hamedani" })}
         href="#"
       >
         Login
