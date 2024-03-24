@@ -1,5 +1,5 @@
-import { useReducer, useState } from 'react';
-import counterReducer from './counterReducer';
+import { useReducer, useState } from "react";
+import useCounterStore from "./store";
 
 const Counter = () => {
   //useReducer hook has two arguments
@@ -7,22 +7,16 @@ const Counter = () => {
   //2. second arg is initial state
   //the returns an array with  [current state, dispatch]
   //dispatch is a function for triggering changes
-  
-  const [value, dispatch] = useReducer(counterReducer, 0);
+
+  const { counter, increment, reset } = useCounterStore();
 
   return (
     <div>
-      Counter ({value})
-      <button
-        onClick={() => dispatch({type: "INCREMENT"})}
-        className="btn btn-primary mx-1"
-      >
+      Counter ({counter})
+      <button onClick={() => increment()} className="btn btn-primary mx-1">
         Increment
       </button>
-      <button
-        onClick={() => dispatch({type: "RESET"})}
-        className="btn btn-primary mx-1"
-      >
+      <button onClick={() => reset()} className="btn btn-primary mx-1">
         Reset
       </button>
     </div>
